@@ -8,15 +8,15 @@ Run <b> Hierarchical-main.ipynb </b> file to train the model and see the test sc
 # Dependencies
 Due to size constraints ``hierarchicalModel-data`` folder does not contain below files:
 
-*1. ``glove.6B.50d.txt`` - This file can be downloaded from https://nlp.stanford.edu/projects/glove/
-*2. ``Test_BERT.csv`` - This file contains BERT <CLS> token embedding for all headline and body pair in test data separated by <SEP> token
-*3. ``Train_BERT.csv`` - This file contains BERT <CLS> token embedding for all headline and body pair in train data separated by <SEP> token
+* ``glove.6B.50d.txt`` - This file can be downloaded from https://nlp.stanford.edu/projects/glove/
+* ``Test_BERT.csv`` - This file contains BERT <CLS> token embedding for all headline and body pair in test data separated by <SEP> token
+* ``Train_BERT.csv`` - This file contains BERT <CLS> token embedding for all headline and body pair in train data separated by <SEP> token
 Both  ``Test_BERT.csv`` and  ``Train_BERT.csv`` are generated using https://bert-as-service.readthedocs.io/en/latest/section/what-is-it.html
     
 # Approach
-*1. ``Feature Engineering`` - On top of baseline features that included n-grams overlap, top modelling was used and cosine similarity between topic-document vectors was computed.
-*2. ``Classifier 1`` - Binary Classification was performed between related and unrelated class using new features + XGBoost classifier.
-*3. ``Classifier 2`` - The samples labelled as Unrelated by Classifier 1 are classified as Unrelated and samples labelled as related are further passed through Classifier 2 consisiting of Ensemble of 3 DNNs with BERT Embeddings as features and a XGBoost classifier training for 4 classes.
+* ``Feature Engineering`` - On top of baseline features that included n-grams overlap, top modelling was used and cosine similarity between topic-document vectors was computed.
+* ``Classifier 1`` - Binary Classification was performed between related and unrelated class using new features + XGBoost classifier.
+* ``Classifier 2`` - The samples labelled as Unrelated by Classifier 1 are classified as Unrelated and samples labelled as related are further passed through Classifier 2 consisiting of Ensemble of 3 DNNs with BERT Embeddings as features and a XGBoost classifier training for 4 classes.
 
 Below are the details of Baseline Implementation that we modified to improve performance:
 
